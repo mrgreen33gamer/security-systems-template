@@ -35,36 +35,42 @@ export default function HomePage() {
       title: "Security Cameras",
       body: "Indoor and outdoor HD cameras with night vision, remote viewing, and clear playback. Designed and installed for full coverage of homes and businesses.",
       link: "/services/security-cameras",
+      image: "/pages/home/services/service-1.jpg",
     },
     {
       icon: faBell,
       title: "Burglar Alarms",
       body: "Door/window sensors, motion detection, sirens, and keypad systems that deter break-ins and alert you — and optional monitoring — in real time.",
       link: "/services/burglar-alarms",
+      image: "/pages/home/services/service-2.jpg",
     },
     {
       icon: faKey,
       title: "Access Control",
       body: "Keypads, fobs, card readers, and smart locks so the right people get in and everyone else stays out — for offices, multi-unit, and commercial spaces.",
       link: "/services/access-control",
+      image: "/pages/home/services/service-3.jpg",
     },
     {
       icon: faDoorOpen,
       title: "Video Doorbells",
       body: "See and speak with visitors from your phone. Professional install with chime setup, Wi-Fi optimization, and app walkthrough.",
       link: "/services/video-doorbell",
+      image: "/pages/home/services/service-4.jpg",
     },
     {
       icon: faHome,
       title: "Smart Home Security",
       body: "Integrate cameras, alarms, locks, and sensors into one app-controlled system. Automation rules that fit how your household actually lives.",
       link: "/services/smart-home-security",
+      image: "/pages/home/services/service-1.jpg",
     },
     {
       icon: faBroadcastTower,
       title: "Monitoring Plans",
       body: "Optional 24/7 professional monitoring with rapid dispatch pathways. Flexible plans — no long-term lock-in required.",
       link: "/services/monitoring-plans",
+      image: "/pages/home/services/service-2.jpg",
     },
   ];
 
@@ -180,28 +186,16 @@ export default function HomePage() {
 
   return (
     <main className={styles.pageWrapper}>
-
       <WelcomePage />
-
       <TrustBar
         headline="Waco's trusted security systems company — licensed, insured, and warrantied on every job"
       />
-
-      <div className={styles.section}>
-        <ImpactMetrics
-          title="Numbers That Speak for Us"
-          metrics={metrics}
-          cityName="Waco"
-        />
-      </div>
-
       <div className={styles.section}>
         <ServiceCardComponent
           heading="Complete Security Solutions for Home & Business"
           cards={services}
         />
       </div>
-
       <div className={styles.section}>
         <WhyChooseUs
           cityName="Waco"
@@ -209,7 +203,55 @@ export default function HomePage() {
           title="What Makes WatchPoint Security Different"
         />
       </div>
-
+      <CTABanner
+        headline="See More. Worry Less."
+        subline="Cameras, alarms, and smart access — designed around how your home or business actually runs."
+        primaryText="Call (254) 910-1212"
+        primaryLink="tel:+12549101212"
+        secondaryText="Design My System"
+        secondaryLink="/contact"
+        imageSrc="/pages/home/welcome/hero-main.jpg"
+      />
+      <div className={styles.section}>
+        <ImpactMetrics
+          title="Numbers That Speak for Us"
+          metrics={metrics}
+          cityName="Waco"
+        />
+      </div>
+      <div className={styles.section}>
+        <ProcessTimeline steps={processSteps} />
+      </div>
+      <div className={styles.section}>
+        <Testimonials testimonials={reviews} />
+      </div>
+      <div className={styles.section}>
+        <GuaranteeSection />
+      </div>
+      <div className={styles.section}>
+        <LocalServiceAreas
+          cityName="Waco"
+          areas={localAreas}
+          servicePath=""
+          title="Serving All of Central Texas"
+        />
+      </div>
+      <div className={styles.section}>
+        <WhatToExpect
+          sectionTitle="Every Service Call, Every Time"
+          expectations={expectations}
+        />
+      </div>
+      <div className={styles.section}>
+        <FAQ
+          cityName="Waco"
+          faq={faq}
+          title="Security Questions — Answered Straight"
+        />
+      </div>
+      <div className={styles.section}>
+        <BlogPreviewGrid />
+      </div>
       <div className={styles.section}>
         <Variant4
           title="Request Service or a Free Quote"
@@ -219,56 +261,6 @@ export default function HomePage() {
           formVariant={2}
         />
       </div>
-
-      <div className={styles.section}>
-        <ProcessTimeline steps={processSteps} />
-      </div>
-
-      <div className={styles.section}>
-        <Testimonials testimonials={reviews} />
-      </div>
-
-      <div className={styles.section}>
-        <GuaranteeSection />
-      </div>
-
-      <CTABanner
-        headline="Need Cameras, Alarms, or Access Control? We're Ready."
-        subline="Same-day appointments across Waco, Hewitt, Woodway, Temple, and all of Central Texas. Flat-rate pricing. 24/7 monitoring options · Workmanship guaranteed."
-        primaryText="Call (254) 910-1212"
-        primaryLink="tel:+12549101212"
-        secondaryText="Book Online"
-        secondaryLink="/contact"
-      />
-
-      <div className={styles.section}>
-        <LocalServiceAreas
-          cityName="Waco"
-          areas={localAreas}
-          servicePath=""
-          title="Serving All of Central Texas"
-        />
-      </div>
-
-      <div className={styles.section}>
-        <WhatToExpect
-          sectionTitle="Every Service Call, Every Time"
-          expectations={expectations}
-        />
-      </div>
-
-      <div className={styles.section}>
-        <FAQ
-          cityName="Waco"
-          faq={faq}
-          title="Security Questions — Answered Straight"
-        />
-      </div>
-
-      <div className={styles.section}>
-        <BlogPreviewGrid />
-      </div>
-
     </main>
   );
 }
