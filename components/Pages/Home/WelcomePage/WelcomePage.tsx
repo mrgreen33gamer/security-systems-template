@@ -1,7 +1,5 @@
-// _archetype-library/hero-f-blueprint/Component.tsx
-//
-// Hero F: Blueprint Schematic — self-drawing SVG line-art (house wireframe /
-// abstract floor-plan). Stroke-dashoffset draw-in on mount.
+// Security Systems Hero — Floor Plan with Sensors, Keypad, Camera Arcs
+// Trade-specific blueprint (not generic house). Draw-in + setTimeout safety.
 'use client';
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
@@ -9,28 +7,32 @@ import Link from 'next/link';
 import { PhoneIcon, ChevronIcon, CheckIcon } from './_shared/icons';
 import styles from './styles.module.scss';
 
-/** Path lengths are estimated; we measure real lengths on mount for accuracy. */
 function BlueprintSchematic({ label }: { label: string }) {
   const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
     const svg = svgRef.current;
     if (!svg) return;
-    // data-draw marks stroke geometry; filled nodes are excluded
     const paths = Array.from(svg.querySelectorAll<SVGGeometryElement>('[data-draw]'));
 
     paths.forEach((el, i) => {
       const length = typeof el.getTotalLength === 'function' ? el.getTotalLength() : 400;
       el.style.strokeDasharray = `${length}`;
       el.style.strokeDashoffset = `${length}`;
-      el.style.animation = `blueprintDraw 1.6s cubic-bezier(0.4, 0, 0.2, 1) forwards`;
-      el.style.animationDelay = `${0.35 + i * 0.07}s`;
+      el.style.animation = `blueprintDraw 1.55s cubic-bezier(0.4, 0, 0.2, 1) forwards`;
+      el.style.animationDelay = `${0.28 + i * 0.055}s`;
+      window.setTimeout(() => {
+        el.style.strokeDashoffset = '0';
+      }, 2200 + i * 40);
     });
   }, []);
 
   return (
     <div className={styles.schematicWrap} role="img" aria-label={label}>
       <div className={styles.schematicGrid} aria-hidden="true" />
+      <div className={styles.rBadge} aria-hidden="true">
+        ZONE MAP
+      </div>
       <svg
         ref={svgRef}
         className={styles.schematic}
@@ -39,158 +41,117 @@ function BlueprintSchematic({ label }: { label: string }) {
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
       >
-        {/* Outer plot boundary */}
-        <rect data-draw x="24" y="48" width="312" height="240" rx="2" className={styles.traceDim} />
+        {/* Building outer walls */}
+        <rect data-draw x="36" y="44" width="288" height="232" className={styles.traceMain} />
 
-        {/* Main structure footprint */}
-        <path
-          data-draw
-          d="M56 200 L56 120 L120 72 L184 120 L184 200 Z"
-          className={styles.traceMain}
-        />
-        {/* Roof ridge detail */}
-        <line data-draw x1="120" y1="72" x2="120" y2="200" className={styles.traceDim} />
+        {/* Interior rooms */}
+        <line data-draw x1="36" y1="140" x2="200" y2="140" className={styles.traceDim} />
+        <line data-draw x1="200" y1="44" x2="200" y2="276" className={styles.traceDim} />
+        <line data-draw x1="200" y1="180" x2="324" y2="180" className={styles.traceDim} />
+        <line data-draw x1="120" y1="140" x2="120" y2="276" className={styles.traceDim} />
 
-        {/* Attached wing / garage volume */}
-        <path
-          data-draw
-          d="M184 200 L184 140 L280 140 L280 200 Z"
-          className={styles.traceMain}
-        />
-        {/* Wing roof slope */}
-        <path data-draw d="M184 140 L232 108 L280 140" className={styles.traceAccent} />
+        {/* Front door swing */}
+        <path data-draw d="M160 276 L160 258 Q175 242 190 258 L190 276" className={styles.traceAccent} />
+        <line data-draw x1="160" y1="276" x2="190" y2="276" className={styles.traceAccent} />
 
-        {/* Interior partition lines */}
-        <line data-draw x1="56" y1="160" x2="184" y2="160" className={styles.traceDim} />
-        <line data-draw x1="120" y1="160" x2="120" y2="200" className={styles.traceDim} />
-        <line data-draw x1="232" y1="140" x2="232" y2="200" className={styles.traceDim} />
+        {/* Window openings */}
+        <line data-draw x1="60" y1="44" x2="100" y2="44" className={styles.traceAccent} />
+        <line data-draw x1="230" y1="44" x2="280" y2="44" className={styles.traceAccent} />
+        <line data-draw x1="324" y1="80" x2="324" y2="120" className={styles.traceAccent} />
+        <line data-draw x1="70" y1="276" x2="105" y2="276" className={styles.traceDim} />
 
-        {/* Door openings */}
-        <path data-draw d="M100 200 L100 182 Q110 170 120 182 L120 200" className={styles.traceAccent} />
-        <line data-draw x1="248" y1="200" x2="264" y2="200" className={styles.traceAccent} />
+        {/* Camera FOV arcs — corners */}
+        <path data-draw d="M52 58 Q90 70 95 105" className={styles.traceAccent} />
+        <path data-draw d="M52 58 Q75 55 95 58" className={styles.traceDim} />
+        <path data-draw d="M308 58 Q270 70 265 105" className={styles.traceAccent} />
+        <path data-draw d="M308 58 Q285 55 265 58" className={styles.traceDim} />
+        <path data-draw d="M308 260 Q270 248 265 215" className={styles.traceAccent} />
+        <path data-draw d="M52 260 Q90 248 95 215" className={styles.traceDim} />
 
-        {/* Window marks */}
-        <rect data-draw x="72" y="128" width="28" height="20" className={styles.traceDim} />
-        <rect data-draw x="140" y="128" width="28" height="20" className={styles.traceDim} />
-        <rect data-draw x="244" y="156" width="24" height="18" className={styles.traceDim} />
+        {/* Door contact / reed sensors on openings */}
+        <rect data-draw x="152" y="268" width="8" height="6" className={styles.traceAccent} />
+        <rect data-draw x="190" y="268" width="8" height="6" className={styles.traceAccent} />
 
-        {/* Circuit-ish utility runs */}
+        {/* Motion sensors (PIR) diamonds */}
+        <path data-draw d="M80 100 L90 110 L80 120 L70 110 Z" className={styles.traceAccent} />
+        <path data-draw d="M250 100 L260 110 L250 120 L240 110 Z" className={styles.traceAccent} />
+        <path data-draw d="M155 200 L165 210 L155 220 L145 210 Z" className={styles.traceDim} />
+
+        {/* Keypad / panel at entry hall */}
+        <rect data-draw x="205" y="230" width="36" height="28" rx="2" className={styles.traceMain} />
+        <line data-draw x1="212" y1="238" x2="234" y2="238" className={styles.traceDim} />
+        <line data-draw x1="212" y1="244" x2="234" y2="244" className={styles.traceDim} />
+        <line data-draw x1="212" y1="250" x2="224" y2="250" className={styles.traceAccent} />
+        <circle data-draw cx="230" cy="250" r="2.5" className={styles.traceAccent} />
+
+        {/* Wired bus path from panel to devices */}
         <polyline
           data-draw
-          points="56,200 40,200 40,248 200,248 200,200"
-          className={styles.traceAccent}
-        />
-        <polyline
-          data-draw
-          points="280,170 300,170 300,248 200,248"
+          points="223,230 223,200 160,200 160,140 80,140 80,110"
           className={styles.traceDim}
         />
+        <polyline
+          data-draw
+          points="223,230 280,230 280,110 250,110"
+          className={styles.traceDim}
+        />
+        <polyline data-draw points="223,258 223,268 175,268" className={styles.traceDim} />
 
-        {/* Junction nodes (no draw animation) */}
-        <circle cx="40" cy="200" r="3.5" className={styles.node} />
-        <circle cx="200" cy="248" r="3.5" className={styles.node} />
-        <circle cx="300" cy="170" r="3.5" className={styles.node} />
-        <circle cx="120" cy="72" r="4" className={styles.nodeAccent} />
-        <circle cx="232" cy="108" r="3.5" className={styles.nodeAccent} />
+        {/* Siren / strobe on exterior */}
+        <circle data-draw cx="300" cy="160" r="12" className={styles.traceAccent} />
+        <path data-draw d="M300 148 L300 172 M288 160 L312 160" className={styles.traceAccent} />
 
-        {/* Dimension tick marks */}
-        <line data-draw x1="56" y1="216" x2="184" y2="216" className={styles.traceDim} />
-        <line data-draw x1="56" y1="212" x2="56" y2="220" className={styles.traceDim} />
-        <line data-draw x1="184" y1="212" x2="184" y2="220" className={styles.traceDim} />
-        <line data-draw x1="296" y1="48" x2="336" y2="48" className={styles.traceDim} />
-        <line data-draw x1="336" y1="48" x2="336" y2="288" className={styles.traceDim} />
+        {/* Window glass break sensors */}
+        <path data-draw d="M72 50 L88 50 L88 56 L72 56 Z" className={styles.traceDim} />
+        <path data-draw d="M242 50 L268 50 L268 56 L242 56 Z" className={styles.traceDim} />
 
-        {/* Compass rose (abstract) */}
-        <circle data-draw cx="308" cy="72" r="14" className={styles.traceDim} />
-        <line data-draw x1="308" y1="58" x2="308" y2="86" className={styles.traceAccent} />
-        <line data-draw x1="294" y1="72" x2="322" y2="72" className={styles.traceDim} />
+        {/* Nodes — cameras, sensors, panel */}
+        <circle cx="52" cy="58" r="4" className={styles.nodeAccent} />
+        <circle cx="308" cy="58" r="4" className={styles.nodeAccent} />
+        <circle cx="308" cy="260" r="3.5" className={styles.nodeAccent} />
+        <circle cx="52" cy="260" r="3.5" className={styles.node} />
+        <circle cx="80" cy="110" r="3" className={styles.node} />
+        <circle cx="250" cy="110" r="3" className={styles.node} />
+        <circle cx="155" cy="210" r="3" className={styles.node} />
+        <circle cx="223" cy="244" r="3.5" className={styles.nodeAccent} />
+        <circle cx="300" cy="160" r="3" className={styles.nodeAccent} />
+        <circle cx="175" cy="271" r="2.5" className={styles.node} />
       </svg>
       <div className={styles.schematicCaption} aria-hidden="true">
         <span className={styles.captionDot} />
-        SCHEMATIC
+        SECURITY PLAN
+      </div>
+      <div className={styles.layerLegend} aria-hidden="true">
+        <span>
+          <i className={styles.legBatt} /> Camera FOV
+        </span>
+        <span>
+          <i className={styles.legFoam} /> Motion / contact
+        </span>
+        <span>
+          <i className={styles.legAir} /> Keypad / bus
+        </span>
       </div>
     </div>
   );
 }
 
 export default function WelcomePage() {
-const badgeText = 'Waco\'s Most Trusted Security Pros — Since 2008';
-const headlineLines = [
-  'Watch Over.',
-  'Respond Fast.',
-];
-const headlineAccent = 'WatchPoint Security.';
-const subheadline = 'Cameras · Alarms · Access Control · Smart Home. Flat-rate pricing. Same-day service. 24/7 monitoring options · Workmanship guaranteed. Serving Waco and Central Texas with licensed technicians.';
-const primaryCta = { label: 'Call (254) 910-1212', href: 'tel:+12549101212' };
-const secondaryCta = { label: 'Free Estimate', href: '/contact' };
-const chips = [
-  'Same-Day Service',
-  'No Contracts',
-  'Licensed Alarm Co.',
-  '18+ Yrs Local',
-  'Workmanship Guaranteed',
-];
-const stats = [
-  {
-    "value": "500+",
-    "label": "Jobs Done"
-  },
-  {
-    "value": "4.9 ★",
-    "label": "Rating"
-  },
-  {
-    "value": "15+",
-    "label": "Years Local"
-  },
-  {
-    "value": "1-Yr",
-    "label": "Warranty"
-  }
-];
-const meterTarget = 72;
-const meterTopLabel = "Peak";
-const meterMidLabel = "Local";
-const meterBotLabel = "Base";
-const particleColor = '#22c55e';
-const beforeImageSrc = '/pages/home/welcome/before.jpg';
-const afterImageSrc = '/pages/home/welcome/after.jpg';
-const beforeLabel = "Blind spots";
-const afterLabel = "Full coverage";
-const mapCenterLabel = 'Service HQ';
-const mapPins = [
-  { label: 'Waco', x: 42, y: 48 },
-  { label: 'Temple', x: 68, y: 62 },
-  { label: 'Killeen', x: 58, y: 72 },
-];
-const coverageLabel = 'Central Texas coverage';
-const materials = [
-  { name: "Cameras", swatch: "#22c55e", imageSrc: "/pages/home/welcome/mat-1.jpg" },
-  { name: "Alarm", swatch: "#4ade80", imageSrc: "/pages/home/welcome/mat-2.jpg" },
-  { name: "Doorbell", swatch: "#16a34a", imageSrc: "/pages/home/welcome/mat-3.jpg" },
-  { name: "Access", swatch: "#86efac", imageSrc: "/pages/home/welcome/mat-1.jpg" },
-  { name: "NVR", swatch: "#15803d", imageSrc: "/pages/home/welcome/mat-2.jpg" },
-  { name: "Commercial", swatch: "#14532d", imageSrc: "/pages/home/welcome/mat-3.jpg" }
-];
-const quote = "App view of every entrance. Install was clean cable management — not the usual spaghetti.";
-const authorName = "Noah I.";
-const authorMeta = "Camera system · Waco";
-const rating = 5;
-const schematicLabel = "WatchPoint schematic";
-const gauges = [
-  { label: "Sites", value: "1,400+" },
-  { label: "Rating", value: "4.8 ★" },
-  { label: "App", value: "Included" },
-  { label: "Monitor", value: "Optional" }
-];
-const toggles = [
-  { label: "Plans active", on: true },
-  { label: "Recurring routes", on: true },
-  { label: "Re-treat ready", on: true }
-];
-const textureSrc = '/pages/home/welcome/hero-main.jpg';
-const textureAlt = 'Texture';
-const accentWord = "WatchPoint";
+  const badgeText = "Waco's Most Trusted Security Pros — Since 2008";
+  const headlineLines = ['Watch Over.', 'Respond Fast.'];
+  const headlineAccent = 'WatchPoint Security.';
+  const subheadline =
+    'Cameras · Alarms · Access Control · Smart Home. Flat-rate pricing. Same-day service. 24/7 monitoring options · Workmanship guaranteed. Serving Waco and Central Texas with licensed technicians.';
+  const primaryCta = { label: 'Call (254) 910-1212', href: 'tel:+12549101212' };
+  const secondaryCta = { label: 'Free Estimate', href: '/contact' };
+  const chips = [
+    'Same-Day Service',
+    'No Contracts',
+    'Licensed Alarm Co.',
+    '18+ Yrs Local',
+    'Workmanship Guaranteed',
+  ];
+  const schematicLabel = 'WatchPoint schematic';
 
   return (
     <section className={styles.hero} aria-label="Hero">
@@ -215,7 +176,10 @@ const accentWord = "WatchPoint";
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             {headlineLines.map((line, i) => (
-              <React.Fragment key={i}>{line}<br /></React.Fragment>
+              <React.Fragment key={i}>
+                {line}
+                <br />
+              </React.Fragment>
             ))}
             <span className={styles.accentLine}>{headlineAccent}</span>
           </motion.h1>
