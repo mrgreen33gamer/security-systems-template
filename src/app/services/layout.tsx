@@ -1,58 +1,37 @@
 // src/app/services/layout.tsx
-// ─────────────────────────────────────────────────────────────────────────────
-// ✅ FIX: This file was previously a copy of
-//    /services/website-design/killeen-tx/layout.tsx (KilleenWebDesignLayout).
-//    That caused a metadata collision — Google saw Killeen keyword targeting
-//    on the /services parent route.
-//
-//    This is now the correct /services parent layout with:
-//    - Broad "all services" metadata (no city/keyword cannibalization)
-//    - OfferCatalog schema listing all 4 services
-//    - BreadcrumbList for the /services route
-// ─────────────────────────────────────────────────────────────────────────────
+// WatchPoint Security — /services parent layout
 import type { Metadata } from "next";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://hvac-pro-template.vercel.app';
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.watchpointsecurity.com';
 const url = `${BASE_URL}/services`;
 
 export const metadata: Metadata = {
-  title: "Services | Web Design, Software, Branding & Marketing | Scott Applications",
+  title: "Security System Services | Cameras, Alarms, Access Control | WatchPoint Security",
   description:
-    "Scott Applications offers custom web design, software engineering, graphic design, and digital marketing for Central Texas businesses. Fixed pricing, no contracts, you own everything.",
+    "WatchPoint Security offers security cameras, burglar alarms, access control, video doorbells, smart home security, and monitoring plans for Waco and Central Texas. Licensed alarm company, workmanship guaranteed.",
   keywords: [
-    "web design Waco TX",
-    "custom software Central Texas",
-    "graphic design Waco",
-    "digital marketing Waco TX",
-    "Scott Applications services",
-    "digital agency Waco Texas",
-    "website development Central Texas",
-    "local SEO Waco",
+    "security camera installation Waco TX",
+    "security system services Waco",
+    "burglar alarm Central Texas",
+    "access control Waco TX",
+    "security systems company Texas",
+    "commercial security systems Waco",
+    "licensed alarm company Waco",
   ],
-  alternates: {
-    canonical: url,
-  },
+  alternates: { canonical: url },
   openGraph: {
-    title: "Services | Web Design, Software, Branding & Marketing | Scott Applications",
+    title: "Security System Services | WatchPoint Security",
     description:
-      "Custom websites, software, branding, and marketing for Central Texas businesses. Fixed price, no contracts, direct developer access.",
+      "Cameras, alarms, access control, video doorbells, smart home security, and monitoring for Waco and Central Texas. Licensed, workmanship guaranteed.",
     url,
-    siteName: "Scott Applications",
+    siteName: "WatchPoint Security",
     locale: "en_US",
     type: "website",
-    images: [
-      {
-        url: `${BASE_URL}/logos/scott-apps-banner.png?v=3`,
-        alt: "Scott Applications — Services for Central Texas Businesses",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Services | Scott Applications",
-    description:
-      "Web design, custom software, graphic design, and digital marketing for Central Texas. Fixed pricing, full ownership.",
-    images: [`${BASE_URL}/logos/scott-apps-banner.png?v=3`],
+    title: "Security System Services | WatchPoint Security",
+    description: "Cameras, alarms, access control & more for Central Texas. Licensed alarm company.",
   },
   robots: { index: true, follow: true },
 };
@@ -60,85 +39,30 @@ export const metadata: Metadata = {
 const offerCatalogSchema = {
   "@context": "https://schema.org",
   "@type": "OfferCatalog",
-  name: "Scott Applications — Digital Services",
+  name: "WatchPoint Security — Security System Services",
   description:
-    "Full-service digital agency offerings for Central Texas businesses: web design, custom software, graphic design, and digital marketing.",
+    "Residential and commercial security system services for Waco and Central Texas: cameras, burglar alarms, access control, video doorbells, smart home security, and monitoring plans.",
   provider: {
-    "@type": "LocalBusiness",
-    name: "Scott Applications",
+    "@type": "SecurityBusiness",
+    name: "WatchPoint Security",
     url: BASE_URL,
-    telephone: "+12549002520",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Waco",
-      addressRegion: "TX",
-      addressCountry: "US",
-    },
+    telephone: "+12549101212",
+    address: { "@type": "PostalAddress", addressLocality: "Waco", addressRegion: "TX", addressCountry: "US" },
   },
   itemListElement: [
-    {
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: "Website Design",
-        description:
-          "Mobile-first, SEO-optimized websites built on Next.js for Central Texas businesses. Fixed price, you own everything.",
-        url: `${BASE_URL}/services/website-design`,
-      },
-    },
-    {
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: "Software Engineering",
-        description:
-          "Custom CRMs, client portals, business tools, and web applications. Fixed price, direct developer access.",
-        url: `${BASE_URL}/services/software-engineering`,
-      },
-    },
-    {
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: "Graphic Design",
-        description:
-          "Custom logos, brand identities, and marketing collateral. Unlimited revisions, full source file ownership.",
-        url: `${BASE_URL}/services/graphic-design`,
-      },
-    },
-    {
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: "Digital Marketing & Local SEO",
-        description:
-          "Local SEO, Google Ads, Google Business Profile management, and social media. Month-to-month, no contracts.",
-        url: `${BASE_URL}/services/marketing-solutions`,
-      },
-    },
-  ],
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home",     item: BASE_URL },
-    { "@type": "ListItem", position: 2, name: "Services", item: url },
+    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Security Cameras", url: `${BASE_URL}/services/security-cameras` } },
+    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Burglar Alarms", url: `${BASE_URL}/services/burglar-alarms` } },
+    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Access Control", url: `${BASE_URL}/services/access-control` } },
+    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Video Doorbells", url: `${BASE_URL}/services/video-doorbell` } },
+    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Smart Home Security", url: `${BASE_URL}/services/smart-home-security` } },
+    { "@type": "Offer", itemOffered: { "@type": "Service", name: "Monitoring Plans", url: `${BASE_URL}/services/monitoring-plans` } },
   ],
 };
 
 export default function ServicesLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(offerCatalogSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(offerCatalogSchema) }} />
       {children}
     </>
   );

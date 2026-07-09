@@ -1,13 +1,4 @@
-// Arctic Air HVAC — Homepage
-// Phase 2: Reshuffled component order + fresh content
-// Original order: WelcomePage → TrustBar → ServiceCards → WhatToExpect → WhyChooseUs
-//                 → ProcessTimeline → ImpactMetrics → Testimonials → GuaranteeSection
-//                 → LocalServiceAreas → FAQ → CTABanner → BlogPreview → Form
-//
-// New order:      WelcomePage → TrustBar → ImpactMetrics → ServiceCards
-//                 → WhyChooseUs → CTABanner (mid) → ProcessTimeline → Testimonials
-//                 → GuaranteeSection → LocalServiceAreas → WhatToExpect → FAQ
-//                 → BlogPreview → Form
+// WatchPoint Security — Homepage
 "use client";
 
 import styles from "./page.module.scss";
@@ -28,198 +19,174 @@ import FAQ                from "#/PageComponents/FAQ/FAQ";
 import BlogPreviewGrid    from "#/PageComponents/BlogPreviewGrid/BlogPreviewGrid";
 
 import {
-  faFan, faFire, faWrench, faFilter, faThermometerHalf, faWind,
+  faVideo, faBell, faKey, faDoorOpen, faHome, faBroadcastTower,
   faTrophy, faChartLine, faClock,
-  faBolt, faShieldHalved, faUsers,
+  faShieldHalved, faUsers,
   faHeadset, faSearch, faFileContract, faCheckCircle,
-  faFileAlt, faRotateLeft, faLock, faStar,
+  faStar, faClipboardCheck, faWrench,
 } from "@fortawesome/free-solid-svg-icons";
 import Variant4 from "#/PageComponents/ContactForms/Variant4/Form";
 
 export default function HomePage() {
 
-  // ── Services ────────────────────────────────────────────────────────────────
   const services = [
     {
-      icon: faFan,
-      title: "AC Repair",
-      body: "Same-day diagnosis on all makes and models. We stock common parts on every truck — most repairs completed in one visit.",
-      link: "/services/ac-repair",
+      icon: faVideo,
+      title: "Security Cameras",
+      body: "Indoor and outdoor HD cameras with night vision, remote viewing, and clear playback. Designed and installed for full coverage of homes and businesses.",
+      link: "/services/security-cameras",
     },
     {
-      icon: faFire,
-      title: "Heating & Furnace",
-      body: "Gas furnaces, heat pumps, dual-fuel systems — repaired fast with a full CO safety inspection on every heating call.",
-      link: "/services/heating",
+      icon: faBell,
+      title: "Burglar Alarms",
+      body: "Door/window sensors, motion detection, sirens, and keypad systems that deter break-ins and alert you — and optional monitoring — in real time.",
+      link: "/services/burglar-alarms",
     },
     {
-      icon: faWrench,
-      title: "New Installation",
-      body: "Right-sized system selection, clean installation, full commissioning. We never upsell equipment you don't need.",
-      link: "/services/installation",
+      icon: faKey,
+      title: "Access Control",
+      body: "Keypads, fobs, card readers, and smart locks so the right people get in and everyone else stays out — for offices, multi-unit, and commercial spaces.",
+      link: "/services/access-control",
     },
     {
-      icon: faFilter,
-      title: "Duct Cleaning",
-      body: "Full system clean and sanitize — removes years of buildup, improves airflow, and makes a real difference for allergy sufferers.",
-      link: "/services/duct-cleaning",
+      icon: faDoorOpen,
+      title: "Video Doorbells",
+      body: "See and speak with visitors from your phone. Professional install with chime setup, Wi-Fi optimization, and app walkthrough.",
+      link: "/services/video-doorbell",
     },
     {
-      icon: faThermometerHalf,
-      title: "Maintenance Plans",
-      body: "Two tune-ups per year, 15% off repairs, priority emergency scheduling. Month-to-month — cancel anytime.",
-      link: "/services/maintenance",
+      icon: faHome,
+      title: "Smart Home Security",
+      body: "Integrate cameras, alarms, locks, and sensors into one app-controlled system. Automation rules that fit how your household actually lives.",
+      link: "/services/smart-home-security",
     },
     {
-      icon: faWind,
-      title: "Indoor Air Quality",
-      body: "UV purifiers, whole-home humidifiers, HEPA-grade filtration. Breathe cleaner air in every room of your home.",
-      link: "/services/indoor-air-quality",
+      icon: faBroadcastTower,
+      title: "Monitoring Plans",
+      body: "Optional 24/7 professional monitoring with rapid dispatch pathways. Flexible plans — no long-term lock-in required.",
+      link: "/services/monitoring-plans",
     },
   ];
 
-  // ── Impact metrics (moved up — builds trust before selling) ─────────────────
   const metrics = [
-    { icon: faTrophy,    value: 2400, label: "Homes and businesses served in Central Texas", suffix: "+", duration: 3 },
-    { icon: faClock,     value: 15,   label: "Years of local HVAC experience",               suffix: "+", duration: 2 },
-    { icon: faChartLine, value: 98,   label: "Customer satisfaction rating",                 suffix: "%", duration: 2 },
+    { icon: faTrophy,    value: 6500, label: "Security systems installed across Central Texas", suffix: "+", duration: 3 },
+    { icon: faClock,     value: 18,   label: "Years protecting Central Texas homes & businesses", suffix: "+", duration: 2 },
+    { icon: faChartLine, value: 98,   label: "Customer satisfaction rating",          suffix: "%", duration: 2 },
   ];
 
-  // ── Why Choose Us (3 differentiators) ───────────────────────────────────────
   const whyFeatures = [
     {
-      icon: faBolt,
-      title: "Emergency Service — Any Hour",
-      description: "AC out at 11pm on a Saturday in July? We answer. Emergency dispatch is available 7 days a week, evenings included. Central Texas heat doesn't wait, and neither do we.",
+      icon: faClipboardCheck,
+      title: "Flat-Rate Written Quotes",
+      description: "You get a firm price before we pull wire or mount a camera. No hourly billing, no surprise add-ons mid-job.",
     },
     {
       icon: faShieldHalved,
-      title: "NATE-Certified, TDLR-Licensed",
-      description: "Every technician on our crew holds NATE certification and a valid Texas TDLR license. No unlicensed subs, no shortcuts. Your home is protected from the first call to the final invoice.",
+      title: "Licensed Alarm Company",
+      description: "Every tech is licensed, bonded, and insured. No unlicensed freelancers installing systems that matter to your safety.",
     },
     {
       icon: faUsers,
-      title: "Locally Owned Since 2010",
-      description: "We're not a franchise. Arctic Air was founded in Waco by Mike Hawkins, a Waco native with 20+ years in the trade. Every decision is made locally, and every call is answered by someone who lives here.",
+      title: "Locally Owned Since 2008",
+      description: "We're not a national call-center brand. WatchPoint Security was founded in Waco by Lena Ortiz. Every decision is made locally.",
     },
   ];
 
-  // ── How it works (process) ───────────────────────────────────────────────────
   const processSteps = [
     {
       number: 1,
       title: "Call or Book Online",
-      description: "Phone, text, or the form below — your choice. We'll confirm a same-day or next-day appointment that fits your schedule.",
+      description: "Phone, text, or the form below — your choice. We'll confirm a same-day or next-day slot that fits your schedule.",
       icon: faHeadset,
     },
     {
       number: 2,
-      title: "Tech Arrives On Time",
-      description: "Uniformed, background-checked tech shows up in the window we promised. Full system diagnosis — explained in plain English, not HVAC jargon.",
+      title: "On-Site Security Assessment",
+      description: "A licensed tech walks your property, maps coverage gaps, and explains options in plain English — not just the most expensive package.",
       icon: faSearch,
     },
     {
       number: 3,
       title: "You Get a Flat-Rate Quote",
-      description: "Written price before we touch anything. You decide — zero pressure to proceed. The quote covers parts and labor, and it never changes mid-job.",
+      description: "Written price before any work starts. You decide — zero pressure to proceed. The quote never changes mid-job.",
       icon: faFileContract,
     },
     {
       number: 4,
-      title: "Done Right, Warranted",
-      description: "Quality parts, clean worksite, 1-year parts and labor warranty on every repair. We leave when you're satisfied — not when we feel like it.",
+      title: "Installed, Tested, Explained",
+      description: "Clean install, full system test, app setup, and training. 24/7 monitoring options available. Workmanship guaranteed.",
       icon: faCheckCircle,
     },
   ];
 
-  // ── What to expect (moved lower — reinforces process detail after trust built) ─
   const expectations = [
     {
       icon: faSearch,
-      title: "Honest System Assessment",
-      description: "We diagnose what's actually wrong — not what's most profitable to fix. You see the findings before we recommend anything.",
+      title: "Honest Site Assessment",
+      description: "We design for real coverage — not maximum camera count. You see the plan and pricing before we install anything.",
     },
     {
       icon: faWrench,
-      title: "Clean, Respectful Service",
-      description: "Shoe covers on, work area protected, home left exactly as we found it. Every single visit.",
+      title: "Clean, Respectful Install",
+      description: "Neat cable runs, patched drywall where needed, and a tidy job site. Your home or business left better than we found it.",
     },
     {
       icon: faCheckCircle,
       title: "Upfront Flat-Rate Price",
-      description: "Written quote before any work starts. The number doesn't change when the job runs long — that's our problem, not yours.",
+      description: "Written quote before any work begins. The number doesn't change when the job runs long — that's our problem, not yours.",
     },
     {
       icon: faStar,
-      title: "Manufacturer-Quality Parts",
-      description: "We use OEM-grade parts on every repair, backed by the full 1-year warranty. No gray-market components, no shortcuts.",
+      title: "Quality Gear & Training",
+      description: "Reliable cameras, sensors, and panels from trusted brands — fully tested with a walkthrough so your family knows the system.",
     },
   ];
 
-  // ── Service areas ────────────────────────────────────────────────────────────
   const localAreas = [
-    { town: "Waco",         benefit: "Home base — fastest dispatch and most available techs in the city.", badge: "Home Base" },
-    { town: "Hewitt",       benefit: "Full residential and commercial coverage. On our regular route.",     badge: "" },
-    { town: "Woodway",      benefit: "Same-day availability for Woodway homes and businesses.",             badge: "" },
-    { town: "Robinson",     benefit: "Regular service area — quick turnaround guaranteed.",                 badge: "" },
-    { town: "China Spring", benefit: "Rural coverage, no trip charge for most China Spring addresses.",     badge: "" },
-    { town: "Killeen",      benefit: "Full coverage for Killeen and Fort Cavazos area customers.",          badge: "" },
+    { town: "Waco",         benefit: "Home base — fastest scheduling and most available techs in the city.", badge: "Home Base" },
+    { town: "Hewitt",       benefit: "Full residential and commercial coverage. On our regular route.",      badge: "" },
+    { town: "Woodway",      benefit: "Regular availability for Woodway homes and businesses.",               badge: "" },
+    { town: "Temple",       benefit: "Regular service area — quick turnaround guaranteed.",                  badge: "" },
+    { town: "China Spring", benefit: "Rural coverage, no trip charge for most China Spring addresses.",      badge: "" },
+    { town: "Killeen",      benefit: "Full coverage for Killeen and Fort Cavazos area customers.",           badge: "" },
   ];
 
-  // ── FAQ ──────────────────────────────────────────────────────────────────────
   const faq = [
     {
-      question: "How much does AC repair cost in Waco?",
-      answer: "Most repairs run $150–$650 depending on the issue. Capacitors and contactors are typically $150–$250. Refrigerant recharges run $250–$500. We always provide a flat-rate written quote before starting — the diagnostic fee is waived when you proceed.",
+      question: "How much does a security system cost in Waco?",
+      answer: "Most residential camera packages start around $500–$2,500 installed depending on camera count and type. Alarm systems and access control vary by size of property. We always provide a flat-rate written quote before any work begins.",
     },
     {
-      question: "Do you offer emergency HVAC service?",
-      answer: "Yes — 7 days a week including evenings and weekends. In Central Texas heat, a broken AC is a genuine emergency. Call us anytime at (254) 900-1234.",
+      question: "Do you offer same-day or emergency service?",
+      answer: "Yes — same-day service is available for many installs and repairs, 7 days a week including evenings. Call us at (254) 910-1212 anytime.",
     },
     {
-      question: "How quickly can you come out?",
-      answer: "Same-day service is available most days. Emergency calls are dispatched within 1–2 hours. We'll give you an honest ETA when you call — not a 4-hour window.",
+      question: "How quickly can you start my project?",
+      answer: "Most residential installs are scheduled within a few days. Larger commercial access-control and multi-camera projects may take 1–2 weeks depending on equipment lead time.",
     },
     {
-      question: "What brands do you service?",
-      answer: "All major brands — Carrier, Trane, Lennox, Rheem, Goodman, York, Daikin, and more. We install Carrier and Trane as our preferred brands for new systems.",
+      question: "What security services do you offer?",
+      answer: "Security cameras, burglar alarms, access control, video doorbells, smart home security integration, and monitoring plans.",
     },
     {
-      question: "Are you licensed and insured in Texas?",
-      answer: "Yes — fully licensed by the Texas Department of Licensing and Regulation (TDLR), bonded, and insured. All technicians are NATE-certified. License number available on request.",
+      question: "Are you licensed and insured?",
+      answer: "Yes — WatchPoint Security is a licensed alarm company, bonded and insured. Credentials available on request.",
     },
     {
-      question: "Do you offer financing for new systems?",
-      answer: "Yes — flexible financing with approved credit, including 0% interest options for qualifying homeowners. Ask us when you get your quote.",
+      question: "Do you offer monitoring and a warranty?",
+      answer: "Yes — optional 24/7 professional monitoring plans plus workmanship guaranteed on every install we complete.",
     },
-  ];
-
-  // ── TrustBar badges (HVAC-specific) ─────────────────────────────────────────
-  const trustBadges = [
-    { icon: faStar,          label: "5.0 Google Rating",    sub: "200+ Reviews" },
-    { icon: faShieldHalved,  label: "TDLR Licensed",        sub: "Texas Certified" },
-    { icon: faTrophy,        label: "NATE Certified",       sub: "All Technicians" },
-    { icon: faClock,         label: "Same-Day Service",     sub: "7 Days a Week" },
-    { icon: faBolt,          label: "Emergency Available",  sub: "Evenings & Weekends" },
-    { icon: faFileAlt,       label: "Flat-Rate Pricing",    sub: "No Surprises" },
-    { icon: faRotateLeft,    label: "1-Year Warranty",      sub: "Parts & Labor" },
-    { icon: faLock,          label: "No Contracts",         sub: "Month-to-Month" },
-    { icon: faWrench,        label: "All Brands Serviced",  sub: "Any Make & Model" },
-    { icon: faUsers,         label: "Locally Owned",        sub: "Since 2010" },
   ];
 
   return (
     <main className={styles.pageWrapper}>
 
-      {/* 1. Hero */}
       <WelcomePage />
 
-      {/* 2. Scrolling trust strip — immediately after hero */}
       <TrustBar
-        headline="Waco's trusted HVAC company — licensed, insured, and warrantied on every job"
+        headline="Waco's trusted security systems company — licensed, insured, and warrantied on every job"
       />
 
-      {/* 3. Impact metrics — build credibility before pitching services */}
       <div className={styles.section}>
         <ImpactMetrics
           title="Numbers That Speak for Us"
@@ -228,24 +195,21 @@ export default function HomePage() {
         />
       </div>
 
-      {/* 4. Services grid */}
       <div className={styles.section}>
         <ServiceCardComponent
-          heading="Complete HVAC Services for Your Home"
+          heading="Complete Security Solutions for Home & Business"
           cards={services}
         />
       </div>
 
-      {/* 5. Why Choose Us */}
       <div className={styles.section}>
         <WhyChooseUs
           cityName="Waco"
           features={whyFeatures}
-          title="What Makes Arctic Air Different"
+          title="What Makes WatchPoint Security Different"
         />
       </div>
 
-      {/* 14. Contact form — final conversion point */}
       <div className={styles.section}>
         <Variant4
           title="Request Service or a Free Quote"
@@ -256,33 +220,27 @@ export default function HomePage() {
         />
       </div>
 
-      {/* 7. How it works — process after the CTA so urgency is set */}
       <div className={styles.section}>
         <ProcessTimeline steps={processSteps} />
       </div>
 
-      {/* 8. Social proof — reviews before the guarantee promise */}
       <div className={styles.section}>
         <Testimonials testimonials={reviews} />
       </div>
 
-      {/* 9. Guarantee — peer validation already done, now make the promise */}
       <div className={styles.section}>
         <GuaranteeSection />
       </div>
 
-      {/* 6. Mid-page CTA — emergency hook before process details */}
       <CTABanner
-        headline="AC Out or Heat Down? Call Us Right Now."
-        subline="Same-day and emergency service across Waco, Hewitt, Woodway, Robinson, and all of Central Texas. Flat-rate pricing. 1-year warranty."
-        primaryText="Call (254) 900-1234"
-        primaryLink="tel:+12549001234"
+        headline="Need Cameras, Alarms, or Access Control? We're Ready."
+        subline="Same-day appointments across Waco, Hewitt, Woodway, Temple, and all of Central Texas. Flat-rate pricing. 24/7 monitoring options · Workmanship guaranteed."
+        primaryText="Call (254) 910-1212"
+        primaryLink="tel:+12549101212"
         secondaryText="Book Online"
         secondaryLink="/contact"
       />
 
-
-      {/* 10. Service areas */}
       <div className={styles.section}>
         <LocalServiceAreas
           cityName="Waco"
@@ -292,7 +250,6 @@ export default function HomePage() {
         />
       </div>
 
-      {/* 11. What to expect (detail reassurance — lower in page) */}
       <div className={styles.section}>
         <WhatToExpect
           sectionTitle="Every Service Call, Every Time"
@@ -300,16 +257,14 @@ export default function HomePage() {
         />
       </div>
 
-      {/* 12. FAQ */}
       <div className={styles.section}>
         <FAQ
           cityName="Waco"
           faq={faq}
-          title="HVAC Questions — Answered Straight"
+          title="Security Questions — Answered Straight"
         />
       </div>
 
-      {/* 13. Blog preview — educational content before the final form */}
       <div className={styles.section}>
         <BlogPreviewGrid />
       </div>

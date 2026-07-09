@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faLocationDot, faPhone, faEnvelope,
-  faShieldHalved, faWrench, faClock, faSnowflake,
+  faShieldHalved, faWrench, faClock, faBolt,
 } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import styles from './styles.module.scss';
@@ -19,30 +19,30 @@ const NAV_LINKS = [
 ];
 
 const SERVICE_LINKS = [
-  { href: '/services/ac-repair',          label: 'AC Repair' },
-  { href: '/services/heating',            label: 'Heating Service' },
-  { href: '/services/installation',       label: 'New Installation' },
-  { href: '/services/maintenance',        label: 'Maintenance Plans' },
-  { href: '/services/duct-cleaning',      label: 'Duct Cleaning' },
-  { href: '/services/indoor-air-quality', label: 'Indoor Air Quality' },
+  { href: '/services/security-cameras',     label: 'Security Cameras' },
+  { href: '/services/burglar-alarms',         label: 'Burglar Alarms' },
+  { href: '/services/access-control',        label: 'Access Control' },
+  { href: '/services/video-doorbell',  label: 'Video Doorbells' },
+  { href: '/services/smart-home-security',label: 'Smart Home Security' },
+  { href: '/services/monitoring-plans', label: 'Monitoring Plans' },
 ];
 
 const LOCAL_AREAS = [
   'Waco, TX', 'Hewitt, TX', 'Woodway, TX',
-  'Robinson, TX', 'China Spring, TX', 'Temple, TX',
-  'Killeen, TX', 'Hillsboro, TX',
+  'McGregor, TX', 'China Spring, TX', 'Temple, TX',
+  'Killeen, TX', 'Bellmead, TX',
 ];
 
 const TRUST_ITEMS = [
   { icon: faShieldHalved, label: 'Licensed & Insured' },
-  { icon: faWrench,       label: 'NATE Certified' },
+  { icon: faWrench,       label: 'Licensed Alarm Company' },
   { icon: faClock,        label: 'Same-Day Service' },
-  { icon: faSnowflake,    label: '1-Yr Warranty' },
+  { icon: faBolt,         label: 'Workmanship Guaranteed' },
 ];
 
 const SOCIALS = [
-  { href: 'https://facebook.com/arcticairhvac', icon: faFacebookF, label: 'Facebook' },
-  { href: 'https://g.page/r/arcticairhvac',     icon: faGoogle,    label: 'Google' },
+  { href: 'https://facebook.com/watchpointsecurity', icon: faFacebookF, label: 'Facebook' },
+  { href: 'https://g.page/r/watchpointsecurity',     icon: faGoogle,    label: 'Google' },
 ];
 
 export default function Footer() {
@@ -65,7 +65,7 @@ export default function Footer() {
             className={styles.trustCta}
             onClick={() => trackEvent({ eventType: 'click', elementLabel: 'Book Now', section: 'Footer-Trust' })}
           >
-            Book a Tech Today →
+            Get Protected Today →
           </Link>
         </div>
       </div>
@@ -88,29 +88,29 @@ export default function Footer() {
                 </svg>
               </span>
               <div className={styles.logoText}>
-                <span className={styles.logoName}>Arctic Air HVAC</span>
+                <span className={styles.logoName}>WatchPoint Security</span>
                 <span className={styles.logoSub}>Waco, Texas</span>
               </div>
             </Link>
 
             <p className={styles.tagline}>
-              Flat-rate pricing. Same-day service. Zero contracts — ever. Serving Central Texas homeowners since 2010.
+              Cameras · Alarms · Access Control · Smart Home. Flat-rate pricing. Same-day service. Serving Central Texas since 2008.
             </p>
 
             <div className={styles.contactBlock}>
-              <a href="tel:+12549001234" className={styles.phoneLink}
+              <a href="tel:+12549101212" className={styles.phoneLink}
                 onClick={() => trackEvent({ eventType: 'phone_click', elementLabel: 'Footer Phone', section: 'Footer-Brand' })}>
                 <FontAwesomeIcon icon={faPhone} />
-                (254) 900-1234
+                (254) 910-1212
               </a>
-              <a href="mailto:contact@arcticairhvac.com" className={styles.emailLink}
+              <a href="mailto:hello@watchpointsecurity.com" className={styles.emailLink}
                 onClick={() => trackEvent({ eventType: 'email_click', elementLabel: 'Footer Email', section: 'Footer-Brand' })}>
                 <FontAwesomeIcon icon={faEnvelope} />
-                contact@arcticairhvac.com
+                hello@watchpointsecurity.com
               </a>
               <span className={styles.addressLine}>
                 <FontAwesomeIcon icon={faLocationDot} />
-                4521 Bosque Blvd, Waco, TX 76710
+                2500 W Waco Dr, Waco, TX 76707
               </span>
             </div>
 
@@ -176,9 +176,9 @@ export default function Footer() {
       <div className={styles.bottomBar}>
         <div className={styles.bottomInner}>
           <p className={styles.copyright}>
-            &copy; {new Date().getFullYear()} Arctic Air HVAC. All Rights Reserved. | TDLR License #XXXXXXXX
+            &copy; {new Date().getFullYear()} WatchPoint Security. All Rights Reserved. | Licensed Alarm Company � Bonded & Insured
           </p>
-          <a href="tel:+12549001234" className={styles.emergencyBtn}
+          <a href="tel:+12549101212" className={styles.emergencyBtn}
             onClick={() => trackEvent({ eventType: 'phone_click', elementLabel: '24/7 Emergency', section: 'Footer-Bottom' })}>
             <span className={styles.emergencyDot} />
             24/7 Emergency Line

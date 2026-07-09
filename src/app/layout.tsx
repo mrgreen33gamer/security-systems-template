@@ -1,5 +1,5 @@
 // src/app/layout.tsx
-// Arctic Air HVAC — root layout
+// WatchPoint Security — root layout
 //
 // MOBILE / SAFE-AREA FIX:
 //   Added a Next.js 14+ `viewport` export with:
@@ -60,7 +60,7 @@ const aBeeZee = ABeeZee({
 
 const isProduction = process.env.NODE_ENV === "production";
 const BASE_URL = isProduction
-  ? "https://www.arcticairhvac.com"
+  ? "https://www.watchpointsecurity.com"
   : "http://localhost:3000";
 
 // ── VIEWPORT ──────────────────────────────────────────────────────────────────
@@ -85,42 +85,42 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Arctic Air HVAC | AC Repair, Heating & Installation — Waco, TX",
-    template: "%s | Arctic Air HVAC",
+    default: "WatchPoint Security | Cameras, Alarms, Access Control & Smart Home — Waco, TX",
+    template: "%s | WatchPoint Security",
   },
   description:
-    "Arctic Air HVAC is a Waco, TX heating and cooling company offering AC repair, furnace service, new system installation, duct cleaning, and maintenance plans for Central Texas homes and businesses. Licensed, local, no contracts.",
+    "WatchPoint Security is a Waco, TX licensed alarm company offering security cameras, burglar alarms, access control, video doorbells, smart home security, and monitoring plans for Central Texas homes and businesses. Bonded & insured.",
   keywords: [
-    "Arctic Air HVAC",
-    "HVAC company Waco TX",
-    "AC repair Waco Texas",
-    "air conditioning installation Waco",
-    "furnace repair Central Texas",
-    "heating and cooling Waco TX",
-    "HVAC contractor Hewitt TX",
-    "duct cleaning Waco",
-    "emergency AC repair Waco",
+    "WatchPoint Security",
+    "security camera installation Waco TX",
+    "security systems Waco Texas",
+    "security system installation Waco",
+    "video doorbell Central Texas",
+    "commercial security systems Waco TX",
+    "security systems company Hewitt TX",
+    "burglar alarm installation Waco",
+    "emergency security camera installation Waco",
   ],
-  authors: [{ name: "Arctic Air HVAC", url: BASE_URL }],
-  creator: "Arctic Air HVAC",
-  publisher: "Arctic Air HVAC",
+  authors: [{ name: "WatchPoint Security", url: BASE_URL }],
+  creator: "WatchPoint Security",
+  publisher: "WatchPoint Security",
   icons: {
     icon: [`${BASE_URL}/logos/favicon.ico?v=1`],
     apple: [`${BASE_URL}/logos/apple-touch-icon.png?v=1`],
     shortcut: [`${BASE_URL}/logos/apple-touch-icon.png?v=1`],
   },
   openGraph: {
-    title: "Arctic Air HVAC | AC Repair, Heating & Installation — Waco, TX",
+    title: "WatchPoint Security | Cameras, Alarms, Access Control & Smart Home — Waco, TX",
     description:
-      "Waco-based HVAC company for AC repair, furnace service, new installations, and maintenance plans across Central Texas. Licensed & insured. No contracts.",
+      "Waco-based licensed alarm company for cameras, alarms, access control, video doorbells, smart home security, and monitoring across Central Texas. Bonded & insured. Workmanship guaranteed.",
     url: BASE_URL,
-    siteName: "Arctic Air HVAC",
+    siteName: "WatchPoint Security",
     images: [
       {
-        url: `${BASE_URL}/logos/arctic-air-banner.png?v=1`,
+        url: `${BASE_URL}/logos/scott-apps-banner.png?v=1`,
         width: 1200,
         height: 630,
-        alt: "Arctic Air HVAC — Waco TX Air Conditioning & Heating",
+        alt: "WatchPoint Security — Waco TX Security Cameras & Installation",
       },
     ],
     locale: "en_US",
@@ -128,10 +128,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arctic Air HVAC | Waco TX Heating & Cooling",
+    title: "WatchPoint Security | Waco TX Security Pros",
     description:
-      "AC repair, heating service, new installations & maintenance plans for Central Texas. Licensed & insured — no contracts.",
-    images: [`${BASE_URL}/logos/arctic-air-banner.png?v=1`],
+      "Security cameras, burglar alarms, access control, video doorbells & monitoring for Central Texas. Licensed alarm company — workmanship guaranteed.",
+    images: [`${BASE_URL}/logos/scott-apps-banner.png?v=1`],
   },
   robots: {
     index: true,
@@ -155,27 +155,27 @@ const ratingValue = "5.0";
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "HVACBusiness",
+  "@type": "SecurityBusiness",
   "@id": `${BASE_URL}/#organization`,
-  name: "Arctic Air HVAC",
-  alternateName: "Arctic Air Heating & Cooling",
+  name: "WatchPoint Security",
+  alternateName: "WatchPoint Security Waco",
   description:
-    "Residential and commercial HVAC services in Waco and Central Texas — AC repair, heating, new installations, duct cleaning, and maintenance plans. Licensed, insured, no contracts.",
+    "Residential and commercial security systems in Waco and Central Texas — security cameras, burglar alarms, access control, video doorbells, smart home security, and monitoring plans. Licensed alarm company, bonded & insured, 24/7 monitoring options · workmanship guaranteed.",
   url: BASE_URL,
-  telephone: "+12549001234",
-  email: "contact@arcticairhvac.com",
-  foundingDate: "2010",
+  telephone: "+12549101212",
+  email: "hello@watchpointsecurity.com",
+  foundingDate: "2008",
   founder: {
     "@type": "Person",
-    name: "Mike Hawkins",
-    jobTitle: "Owner & Master HVAC Technician",
+    name: "Lena Ortiz",
+    jobTitle: "Owner & Lead Security Systems Specialist",
   },
   address: {
     "@type": "PostalAddress",
-    streetAddress: "4521 Bosque Blvd",
+    streetAddress: "2500 W Waco Dr",
     addressLocality: "Waco",
     addressRegion: "TX",
-    postalCode: "76710",
+    postalCode: "76707",
     addressCountry: "US",
   },
   geo: {
@@ -201,24 +201,22 @@ const localBusinessSchema = {
     { "@type": "City", name: "Waco",        containedInPlace: { "@type": "State", name: "Texas" } },
     { "@type": "City", name: "Hewitt",       containedInPlace: { "@type": "State", name: "Texas" } },
     { "@type": "City", name: "Woodway",      containedInPlace: { "@type": "State", name: "Texas" } },
-    { "@type": "City", name: "Robinson",     containedInPlace: { "@type": "State", name: "Texas" } },
+    { "@type": "City", name: "Bellmead",     containedInPlace: { "@type": "State", name: "Texas" } },
     { "@type": "City", name: "China Spring", containedInPlace: { "@type": "State", name: "Texas" } },
-    { "@type": "City", name: "Hillsboro",    containedInPlace: { "@type": "State", name: "Texas" } },
+    { "@type": "City", name: "McGregor",     containedInPlace: { "@type": "State", name: "Texas" } },
     { "@type": "City", name: "Temple",       containedInPlace: { "@type": "State", name: "Texas" } },
     { "@type": "City", name: "Killeen",      containedInPlace: { "@type": "State", name: "Texas" } },
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "HVAC Services",
+    name: "Security System Services",
     itemListElement: [
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "AC Repair" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "AC Installation" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Heating Repair" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Furnace Installation" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Duct Cleaning" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "HVAC Maintenance Plans" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Indoor Air Quality" } },
-      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Smart Thermostat Installation" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Security Cameras" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Burglar Alarms" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Access Control" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Video Doorbells" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Smart Home Security" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Monitoring Plans" } },
     ],
   },
   aggregateRating: {
@@ -232,7 +230,7 @@ const localBusinessSchema = {
   currenciesAccepted: "USD",
   paymentAccepted: "Cash, Credit Card, Check, Financing",
   sameAs: [
-    "https://www.facebook.com/arcticairhvac",
+    "https://www.facebook.com/watchpointsecurity",
     "https://www.google.com/maps/?cid=placeholder",
   ],
 };
@@ -259,7 +257,7 @@ export default function RootLayout({
           <Header />
         </ConditionalShell>
 
-        <NextTopLoader color="#f97316" showSpinner={false} />
+        <NextTopLoader color="#1e3a8a" showSpinner={false} />
 
         <Suspense fallback={null}>
           <Analytics />
@@ -275,10 +273,10 @@ export default function RootLayout({
                   alignItems: "center",
                   width: "100%",
                   height: "100vh",
-                  background: "#0a130a",
+                  background: "#0d1b2a",
                 }}
               >
-                <PulseLoader size={50} color="#f97316" />
+                <PulseLoader size={50} color="#1e3a8a" />
               </div>
             }
           >

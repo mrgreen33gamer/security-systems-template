@@ -1,4 +1,4 @@
-# Arctic Air HVAC — UI Changes Package
+# WatchPoint Security — UI Changes Package
 
 ## How to apply
 
