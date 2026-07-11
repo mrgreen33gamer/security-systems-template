@@ -63,14 +63,14 @@ export default function HomePage() {
       title: "Smart Home Security",
       body: "Integrate cameras, alarms, locks, and sensors into one app-controlled system. Automation rules that fit how your household actually lives.",
       link: "/services/smart-home-security",
-      image: "/pages/home/services/service-1.jpg",
+      image: "/pages/home/welcome/before.jpg",
     },
     {
       icon: faBroadcastTower,
       title: "Monitoring Plans",
       body: "Optional 24/7 professional monitoring with rapid dispatch pathways. Flexible plans — no long-term lock-in required.",
       link: "/services/monitoring-plans",
-      image: "/pages/home/services/service-2.jpg",
+      image: "/pages/home/welcome/after.jpg",
     },
   ];
 

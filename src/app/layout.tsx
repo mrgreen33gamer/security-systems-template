@@ -124,7 +124,7 @@ export const metadata: Metadata = {
     siteName: "WatchPoint Security",
     images: [
       {
-        url: `${BASE_URL}/logos/scott-apps-banner.png?v=1`,
+        url: `${BASE_URL}/pages/home/welcome/hero-main.jpg`,
         width: 1200,
         height: 630,
         alt: "WatchPoint Security — Waco TX Security Cameras & Installation",
@@ -138,7 +138,7 @@ export const metadata: Metadata = {
     title: "WatchPoint Security | Waco TX Security Pros",
     description:
       "Security cameras, burglar alarms, access control, video doorbells & monitoring for Central Texas. Licensed alarm company — workmanship guaranteed.",
-    images: [`${BASE_URL}/logos/scott-apps-banner.png?v=1`],
+    images: [`${BASE_URL}/pages/home/welcome/hero-main.jpg`],
   },
   robots: {
     index: true,
