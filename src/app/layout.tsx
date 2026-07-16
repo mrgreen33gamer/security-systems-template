@@ -264,7 +264,7 @@ export default function RootLayout({
           <Header />
         </ConditionalShell>
 
-        <NextTopLoader color="#22c55e" showSpinner={false} />
+        <NextTopLoader color="#2563eb" showSpinner={false} />
 
         <Suspense fallback={null}>
           <Analytics />
@@ -283,7 +283,7 @@ export default function RootLayout({
                   background: "#020617",
                 }}
               >
-                <PulseLoader size={50} color="#22c55e" />
+                <PulseLoader size={50} color="#2563eb" />
               </div>
             }
           >
